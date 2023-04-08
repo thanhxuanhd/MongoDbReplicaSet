@@ -20,8 +20,14 @@ services:
       - mongodb2
       - mongodb3
     restart: always
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
-  
+    entrypoint:
+      [
+        "/usr/bin/mongod",
+        "--bind_ip_all",
+        "--replSet",
+        "myReplSet"
+      ]
+      
   mongodb2:
     container_name: mongodb2
     hostname: mongodb2
@@ -37,7 +43,13 @@ services:
     networks:
       - mongo-network
     restart: always
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+    entrypoint:
+      [
+        "/usr/bin/mongod",
+        "--bind_ip_all",
+        "--replSet",
+        "myReplSet"
+      ]
 
   mongodb3:
     container_name: mongodb3
@@ -54,7 +66,13 @@ services:
     networks:
       - mongo-network
     restart: always
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+    entrypoint:
+      [
+        "/usr/bin/mongod",
+        "--bind_ip_all",
+        "--replSet",
+        "myReplSet"
+      ]
 
 networks:
   mongo-network:
